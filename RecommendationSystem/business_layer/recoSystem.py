@@ -4,6 +4,7 @@ import spacy as spacy
 import yake as yake
 from bs4 import BeautifulSoup
 
+
 class RecoSystem:
     def enter_landing_page_url(self):
         """
@@ -12,7 +13,6 @@ class RecoSystem:
         :return: void
         """
         pass
-
 
     def scan_landing_page(self, url):
         """
@@ -80,10 +80,19 @@ class RecoSystem:
             new_tuple = (kw[0], new_score)
             res_list.append(new_tuple)
 
-        print(keywords)
-        print(res_list)
-        return res_list
+        def key_func(tuple):
+            return tuple[1]
 
+        res_list.sort(key=key_func)
+        res = []
+        count = 0
+        for w in res_list:
+            if count == 5:
+                break
+            count += 1
+            res.append(w[0])
+
+        return res
 
     def add_scraping_rule(self, new_rule):
         """
