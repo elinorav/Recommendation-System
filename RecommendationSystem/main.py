@@ -1,6 +1,5 @@
 import urllib.request
 
-import spacy as spacy
 import yake as yake
 from bs4 import BeautifulSoup
 
@@ -23,7 +22,7 @@ def check_if_in_header(htmlParse, h_i, str):
 
 
 if __name__ == '__main__':
-    url = input('Please enter a URL of a lending page')
+    url = input('Please enter a URL of a lending page\n')
     print('You have entered:' + url)
 
     # url = 'https://www.bbc.com/storyworks/clear-sky-thinking-airbus-2021/airbus-2021-clear-sky-thinking' \
