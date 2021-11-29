@@ -30,8 +30,8 @@ if __name__ == '__main__':
     lbl_enter = tk.Label(text="Please enter a URL of a lending page:", fg="black", font="Helvetica 17").place(x=0, y=100)
     entry_url = tk.Entry(textvariable=url_var, fg="yellow", bg="black", width=50).pack(fill=tk.X, ipady=10)
 
-    btn_title = tk.Button(text="scan by Title", fg="black", font="Helvetica 15", command=Title).pack(fill=tk.X)
-    btn_keyword = tk.Button(text="scan by keyword", fg="black", font="Helvetica 15", command=Keyword).pack(fill=tk.X)
+    btn_title = tk.Button(text="scan for Title", fg="black", font="Helvetica 15", command=Title).pack(fill=tk.X)
+    btn_keyword = tk.Button(text="scan for keywords", fg="black", font="Helvetica 15", command=Keyword).pack(fill=tk.X)
     # btn_image = tk.Button(text="scan by image", fg="black", font="Helvetica 10", command=Image).pack(fill=tk.X)
     lbl_result = tk.Label(fg="blue", font="Helvetica 17")
     btn_exit = tk.Button(text="Quit", command=lambda root=window: quit(root))
