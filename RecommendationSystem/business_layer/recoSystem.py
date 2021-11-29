@@ -82,6 +82,8 @@ class RecoSystem:
 
         print(keywords)
         print(res_list)
+        return res_list
+
 
     def add_scraping_rule(self, new_rule):
         """
