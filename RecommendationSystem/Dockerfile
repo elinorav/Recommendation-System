@@ -1,6 +1,6 @@
 FROM python:3
 
-ADD main.py /
+ADD main/python/Server/Main.py /
 
 RUN pip install yake bs4 lxml
 
