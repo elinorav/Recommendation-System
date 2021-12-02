@@ -21,15 +21,10 @@ def extract_title_from_landing_page():
 def extract_keywords_from_landing_page():
 	reco = RecoSystem()
 	url = request.args.get('url')
-	print("we here line 24")
-	x, result = reco.extract_keywords_from_landing_page(url)
-	print("we here line 26")
+	result = reco.extract_keywords_from_landing_page(url)
 	if not result:
-		print("we here line 28")
 		abort(404, message="url is incorrect")
-	print("we here")
-	print(result.text)
-	return result
+	return str(result)
 
 
 
