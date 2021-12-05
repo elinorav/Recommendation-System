@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/RecommendationSystem.iml" filepath="$PROJECT_DIR$/.idea/RecommendationSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/greetingApp_FLASK.iml" filepath="$PROJECT_DIR$/.idea/greetingApp_FLASK.iml" />
     </modules>
   </component>
 </project>
