@@ -26,7 +26,9 @@ def extract_keywords_from_landing_page():
 		abort(404, message="url is incorrect")
 	return str(result)
 
-
+@app.route('/')
+def home():
+    return "Hello World!!!"
 
 if __name__ == "__main__":
 	app.run(debug=True)
