@@ -15,7 +15,7 @@ def extract_keywords_from_landing_page():
 	reco = recoSystem.RecoSystem()
 	url = str(request.form['name_input'])
 	result = reco.extract_keywords_from_landing_page(url)
-	x, res_title = reco.scan_landing_page(url)
+	res_title = reco.extract_title_from_landing_page(url)
 	if not result:
 		flash("Can't extract the data from this url... working on it:)")
 		return render_template("index.html")
@@ -32,7 +32,7 @@ def extract_keywords_from_landing_page():
 def extract_title_from_landing_page():
 	reco = recoSystem.RecoSystem()
 	url = request.args.get('url')
-	x, result = reco.scan_landing_page(url)
+	result = reco.extract_title_from_landing_page(url)
 	if not result:
 		return {"message": "Can't extract the data from this url... working on it:)"}
 	res_json = {"title": result.text}

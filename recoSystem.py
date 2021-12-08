@@ -19,12 +19,31 @@ class RecoSystem:
         :return: void
         """
         # opening the url for reading
-        html = urllib.request.urlopen(url)
+        try:
+            html = urllib.request.urlopen(url)
+        except:
+            return None
+
+        # parsing the html file
+        htmlParse = BeautifulSoup(html, 'lxml')
+        return htmlParse
+
+    def extract_title_from_landing_page(self, url):
+        """
+        purpose: extract title from  a landing page.
+        :param url: landing page url
+        :return: title
+        """
+        # opening the url for reading
+        try:
+            html = urllib.request.urlopen(url)
+        except:
+            return None
 
         # parsing the html file
         htmlParse = BeautifulSoup(html, 'lxml')
         title = htmlParse.find('title')
-        return htmlParse, title
+        return title
 
     def extract_keywords_from_landing_page(self, url):
         """
@@ -32,7 +51,11 @@ class RecoSystem:
         :param url: landing page url
         :return: list of keywords
         """
-        htmlParse, title = self.scan_landing_page(url)
+        htmlParse = self.scan_landing_page(url)
+        if htmlParse == None:
+            return ["Can't open this url - url in wrong!"]
+        title = self.extract_title_from_landing_page(url)
+
         head = htmlParse.find("head")
         str_of_keywords = ""
         for t in head:
@@ -70,7 +93,7 @@ class RecoSystem:
             paragraphs += str(p.text).lower()
 
         if paragraphs == "":
-            return [title]
+            return [title.text]
 
         language = "en"
         max_ngram_size = 2
