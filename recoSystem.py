@@ -61,6 +61,8 @@ class RecoSystem:
             return [e]
         title = htmlParse.find("title")
         # title = self.extract_title_from_landing_page(url)
+        if title is None:
+            return ["Exception: Cannot Access url"]
 
         head = htmlParse.find("head")
         str_of_keywords = ""

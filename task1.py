@@ -26,14 +26,9 @@ if __name__ == '__main__':
 	df = pd.DataFrame(data, columns=['url'])
 	for d in df.values:
 		try:
-			if i == 308:
-				print(i)
 			list = extract_keywords(d[0])
 			data['keywords'].iloc[i] = list
 			data.to_csv("ds_anstrex_tb.csv", index=False)
-		except:
-			print("Except occurs")
+		except Exception as e:
+			print("index: " + str(i) + ": " + str(e))
 		i = i+1
-
-
-
