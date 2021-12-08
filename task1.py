@@ -20,7 +20,7 @@ def extract_keywords(url):
 
 if __name__ == '__main__':
 	i = 0
-	data = pd.read_csv(r'C:\Users\אלינור\Desktop\לימודים\סמסטר ז\פרויקט גמר\Recommendation-System/ds_anstrex_tb.csv')
+	data = pd.read_csv(r'ds_anstrex_tb.csv')
 	data["keywords"] = ""
 
 	df = pd.DataFrame(data, columns=['url'])
