@@ -5,7 +5,6 @@ from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 
 
-
 class RecoSystem:
     def enter_landing_page_url(self):
         """
@@ -75,8 +74,8 @@ class RecoSystem:
         if str_of_keywords != "":
             return str_of_keywords.split(',')
 
-
         # checks if str in part of a title or a header
+
         def check_if_in_title(title, str):
             if str in title:
                 return True
@@ -100,7 +99,7 @@ class RecoSystem:
         for p in paragraph_tags:
             paragraphs += str(p.text).lower()
 
-        if len(paragraphs) <= 5 or re.search('[a-zA-Z]', paragraphs) is None :
+        if len(paragraphs) <= 5 or re.search('[a-zA-Z]', paragraphs) is None:
             return [title.text]
 
         language = "en"
