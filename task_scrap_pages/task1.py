@@ -22,6 +22,13 @@ def extract_keywords(url):
         return ["Can't extract the data from this url... working on it:)"]
     return result
 
+def scrap(url):
+    reco = recoSystem.RecoSystem()
+    result = reco.scrap_page(url)
+    if len(result) == 0:
+        return ["Can't extract the data from this url... working on it:)"]
+    return result
+
 
 def thread_extract_data_from_url(lock_for_count, lock_for_file):
     lock_for_file.acquire()
@@ -81,12 +88,13 @@ if __name__ == '__main__':
 
     # executor.submit(thread_extract_data_from_url)
 
+
     for d in df.values:
-        try:
-            list = extract_keywords(d[0])
-            data['keywords'].iloc[i] = list
-            data.to_csv("ds_anstrex_tb.csv", index=False)
-        except Exception as e:
-            print("index: " + str(i) + ": " + str(e))
-        print(str(i))
-        i = i + 1
+       try:
+           list = extract_keywords(d[0])
+           data['keywords'].iloc[i] = list
+           data.to_csv("ds_anstrex_tb.csv", index=False)
+       except Exception as e:
+           print("index: " + str(i) + ": " + str(e))
+       print(str(i))
+       i = i + 1

@@ -14,6 +14,7 @@ class RecoSystem:
         """
         pass
 
+
     def scan_landing_page(self, url):
         """
         purpose: scan a landing page url.
@@ -48,6 +49,23 @@ class RecoSystem:
         htmlParse = BeautifulSoup(html, 'lxml')
         title = htmlParse.find('title')
         return title
+
+    def extract_description_from_landing_page(self, url):
+        htmlParse, e = self.scan_landing_page(url)
+        if htmlParse is None:
+            return [e]
+        head = htmlParse.find("head")
+        description = ""
+        for t in head:
+            if str(t).__contains__("name=\"description\"") and str(t).__contains__("meta"):
+                if str(t).__contains__("content"):
+                    description = t.__getitem__("content")
+                    break
+        if description == "":
+            return "Description is not exist"
+        else:
+            return description
+
 
     def extract_keywords_from_landing_page(self, url):
         """
@@ -133,6 +151,16 @@ class RecoSystem:
             res.append(w[0])
 
         return res
+
+    def scrap_page(self, url):
+        title = self.extract_title_from_landing_page(url)
+        description = self.extract_description_from_landing_page(url)
+        keywords = self.extract_keywords_from_landing_page(url)
+
+        return {"title:": title.text,
+                "description: ": description,
+                "keywords: ": keywords}
+
 
     def add_scraping_rule(self, new_rule):
         """
