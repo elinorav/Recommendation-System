@@ -30,6 +30,7 @@ def scrap(url):
     return result
 
 
+
 def thread_extract_data_from_url(lock_for_count, lock_for_file):
     lock_for_file.acquire()
     data = pd.read_csv(r'ds_anstrex_tb.csv')
@@ -70,8 +71,12 @@ def print_hi():
 
 
 if __name__ == '__main__':
-    url = "https://www.sonoviastore.co.il/blogs/news/%D7%94%D7%9E%D7%A1%D7%9B%D7%94-%D7%94%D7%98%D7%95%D7%91%D7%94-%D7%91%D7%99%D7%95%D7%AA%D7%A8-%D7%9C%D7%98%D7%99%D7%A1%D7%95%D7%AA-%D7%91%D7%A9%D7%A0%D7%AA-2021-%D7%A1%D7%95%D7%A0%D7%95%D7%91%D7%99%D7%94?utm_source=taboola&utm_medium=referral&utm_campaign=TB_Blog_AirTravel_IL_PC&tblci=GiDbJRndUImP9rc80Mls7KW1gFpDdEMCGlkTelmGFUrFzyDq3U8oxaqc6ZT4jY_QAQ#tblciGiDbJRndUImP9rc80Mls7KW1gFpDdEMCGlkTelmGFUrFzyDq3U8oxaqc6ZT4jY_QAQ"
-    print(scrap(url))
+    reco = recoSystem.RecoSystem()
+    url = "https://www.bbc.com/news/world-us-canada-59645307"
+    keywords = extract_keywords(url)
+    result = reco.recommend_n_photos_by_keywords("pixable", keywords, 2)
+    print(result.json())
+
     # i = 0
     # data = pd.read_csv(r'ds_anstrex_tb.csv')
     #
