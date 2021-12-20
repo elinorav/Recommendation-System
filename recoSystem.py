@@ -3,8 +3,6 @@ import urllib.request
 import yake as yake
 from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
-import requests
-
 
 
 class RecoSystem:
@@ -159,9 +157,10 @@ class RecoSystem:
         description = self.extract_description_from_landing_page(url)
         keywords = self.extract_keywords_from_landing_page(url)
 
-        return {"title:": title.text,
-                "description: ": description,
-                "keywords: ": keywords}
+        return {"title": title.text,
+                "description": description,
+                "keywords": keywords}
+
 
     def add_scraping_rule(self, new_rule):
         """
@@ -204,10 +203,7 @@ class RecoSystem:
         :param image_repos: a list of image repositories API's to search from
         :return: n most relevant photos
         """
-        for k in keywords:
-            url = f"https://optimusqbgu.azurewebsites.net/api/imageservice?stock={image_repos}&keywords={k}&maxImages={str(n)}"
-            response = requests.get(url)
-            return response
+        pass
 
     def recommend_n_photos_by_landing_page(self, image_repos, landing_url, n):
         """
