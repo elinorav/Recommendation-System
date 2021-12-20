@@ -70,12 +70,12 @@ def print_hi():
         print("hi")
 
 
-if __name__ == '__main__':
-    reco = recoSystem.RecoSystem()
-    url = "https://www.bbc.com/news/world-us-canada-59645307"
-    keywords = extract_keywords(url)
-    result = reco.recommend_n_photos_by_keywords("pixable", keywords, 2)
-    print(result.json())
+# if __name__ == '__main__':
+#     reco = recoSystem.RecoSystem()
+#     url = "https://www.bbc.com/news/world-us-canada-59645307"
+#     keywords = extract_keywords(url)
+#     result = reco.recommend_n_photos_by_keywords("pixable", keywords, 2)
+#     print(result.json())
 
     # i = 0
     # data = pd.read_csv(r'ds_anstrex_tb.csv')
